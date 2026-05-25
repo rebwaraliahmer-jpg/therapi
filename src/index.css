@@ -14,6 +14,14 @@
 }
 
 @font-face {
+  font-family: 'Kurdistan 24 Bold';
+  src: url('/src/assets/fonts/k24-bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
   font-family: 'DroidNaskh-Regular';
   src: url('https://fontlibrary.org/assets/fonts/droid-arabic-naskh/fd4b27f3b16500224174d4930a24ddfc/791f577ddc8e608ef0d842d070bcac23/DroidArabicNaskhRegular.ttf') format('truetype');
   font-weight: normal;
@@ -22,11 +30,11 @@
 }
 
 .font-droid-naskh {
-  font-family: 'DroidNaskh-Regular', 'Ali K Samik', "Cairo", "Inter", sans-serif !important;
+  font-family: 'Kurdistan 24 Bold', 'Ali K Samik', 'DroidNaskh-Regular', "Cairo", "Inter", sans-serif !important;
 }
 
 .lang-ku, .lang-ku * {
-  font-family: 'Ali K Samik', "Cairo", "Inter", sans-serif !important;
+  font-family: 'Kurdistan 24 Bold', 'Ali K Samik', "Cairo", "Inter", sans-serif !important;
 }
 
 @theme {

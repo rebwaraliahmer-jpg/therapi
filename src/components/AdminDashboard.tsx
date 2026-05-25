@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Users, User, Landmark, DollarSign, Activity, FileText, ArrowRight, ShieldCheck, Plus, Trash, Globe, Settings, BarChart3, PieChart, Volume2, HelpCircle, Eye, BadgeAlert, Coins, TrendingUp, Loader2 } from 'lucide-react';
+import { Users, User, Landmark, DollarSign, Activity, FileText, ArrowRight, ShieldCheck, Plus, Trash, Globe, Settings, BarChart3, PieChart, Volume2, HelpCircle, Eye, BadgeAlert, Coins, TrendingUp, Loader2, Download } from 'lucide-react';
 import { Therapist, Transaction } from '../types.ts';
 
 interface AdminDashboardProps {
@@ -130,6 +130,26 @@ export default function AdminDashboard({ lang, currentUser, onNavigate }: AdminD
     } catch (err) {
       console.error(err);
     }
+  };
+
+  const handleDownloadChatLogs = (chat: any) => {
+    const doctor = metrics?.therapists?.find((t: any) => t.id === chat.therapistId);
+    const chatLogData = {
+      chatId: chat.id,
+      therapistId: chat.therapistId,
+      therapistName: doctor?.name || 'Unassigned',
+      timestamp: new Date().toISOString(),
+      messagesCount: chat.messages?.length || 0,
+      messages: chat.messages || []
+    };
+
+    const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(chatLogData, null, 2));
+    const downloadAnchor = document.createElement('a');
+    downloadAnchor.setAttribute("href", dataStr);
+    downloadAnchor.setAttribute("download", `chat_log_${chat.id}.json`);
+    document.body.appendChild(downloadAnchor);
+    downloadAnchor.click();
+    downloadAnchor.remove();
   };
 
   const handleAddPayout = async (e: React.FormEvent) => {
@@ -435,9 +455,18 @@ export default function AdminDashboard({ lang, currentUser, onNavigate }: AdminD
                         const doctor = metrics.therapists.find((t: any) => t.id === c.therapistId);
                         return (
                           <div key={c.id} className="p-4 border border-slate-850 rounded-xl bg-slate-900">
-                            <div className="flex items-center justify-between border-b border-slate-800 pb-3 mb-3">
-                              <span className="text-xs font-bold text-white uppercase font-black">Channel: {c.id}</span>
-                              <span className="text-xs text-emerald-400 justify-end flex">Doctor: {doctor?.name || 'Unassigned'}</span>
+                            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800 pb-3 mb-3">
+                              <div>
+                                <span className="text-xs font-bold text-white uppercase font-black block">Channel: {c.id}</span>
+                                <span className="text-[10px] text-slate-400 mt-0.5">Doctor: {doctor?.name || 'Unassigned'}</span>
+                              </div>
+                              <button
+                                onClick={() => handleDownloadChatLogs(c)}
+                                className="px-3 py-1.5 bg-slate-800 hover:bg-emerald-600 hover:text-white text-emerald-400 font-bold rounded-lg text-xs cursor-pointer transition-colors flex items-center gap-1.5 shadow-xs whitespace-nowrap"
+                              >
+                                <Download className="w-3.5 h-3.5" />
+                                Download Chat Logs
+                              </button>
                             </div>
                             <div className="space-y-2 mt-2 font-sans">
                               {c.messages.map((m: any, idx: number) => (

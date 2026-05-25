@@ -143,7 +143,7 @@ export default function HomeView({ lang, setLang, onNavigate, currentUser, onLog
                 {t.tagline}
               </div>
 
-              <h1 id="hero-title" className={`text-3xl sm:text-5xl font-extrabold tracking-tight text-gray-900 leading-tight ${lang === 'ku' ? 'font-droid-naskh' : ''}`}>
+              <h1 id="hero-title" className="text-3xl sm:text-5xl font-extrabold tracking-tight text-gray-900 leading-tight">
                 {t.heroTitle}
               </h1>
               
