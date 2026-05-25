@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'Ali K Samik';
+  src: url('https://db.onlinewebfonts.com/t/ab59b7ce11855e7fcbbdedb8d343c68e.eot');
+  src: url('https://db.onlinewebfonts.com/t/ab59b7ce11855e7fcbbdedb8d343c68e.eot?#iefix') format('embedded-opentype'),
+       url('https://db.onlinewebfonts.com/t/ab59b7ce11855e7fcbbdedb8d343c68e.woff2') format('woff2'),
+       url('https://db.onlinewebfonts.com/t/ab59b7ce11855e7fcbbdedb8d343c68e.woff') format('woff'),
+       url('https://db.onlinewebfonts.com/t/ab59b7ce11855e7fcbbdedb8d343c68e.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'DroidNaskh-Regular';
+  src: url('https://fontlibrary.org/assets/fonts/droid-arabic-naskh/fd4b27f3b16500224174d4930a24ddfc/791f577ddc8e608ef0d842d070bcac23/DroidArabicNaskhRegular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+.font-droid-naskh {
+  font-family: 'DroidNaskh-Regular', 'Ali K Samik', "Cairo", "Inter", sans-serif !important;
+}
+
+.lang-ku, .lang-ku * {
+  font-family: 'Ali K Samik', "Cairo", "Inter", sans-serif !important;
+}
+
+@theme {
+  --font-sans: "Inter", "Cairo", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --color-brand-50: #f0fdfa;
+  --color-brand-100: #ccfbf1;
+  --color-brand-500: #0d9488;
+  --color-brand-600: #0f766e;
+  --color-brand-700: #115e59;
+  --color-brand-900: #134e4a;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #fafbfc;
+}
+
+/* Custom gorgeous scrollbar for chats like WhatsApp */
+.chat-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+.chat-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.chat-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(13, 148, 136, 0.2);
+  border-radius: 9999px;
+}
+.chat-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(13, 148, 136, 0.4);
+}
+

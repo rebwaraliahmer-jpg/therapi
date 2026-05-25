@@ -1,0 +1,6 @@
+{
+  "name": "Kurdistan Therapist Chat",
+  "description": "A simple and modern online therapy and messaging platform for Kurdistan, supporting Kurdish, Arabic, and English.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
